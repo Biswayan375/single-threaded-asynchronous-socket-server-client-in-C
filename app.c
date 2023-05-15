@@ -36,8 +36,8 @@ int main() {
 
 	/**
 	 * There are two types of messages that can be received from the socket -
-	 * 1. <SENDER>:<MESSAGE_BODY>		- where we can easily separate the sender portion from the message body
-	 * 2. <MESSAGE_BODY>				- where there is no sender portion in the messsage, only the message itself
+	 * 1. <SENDER>:<MESSAGE_BODY>	- where we can easily separate the sender portion from the message body
+	 * 2. <MESSAGE_BODY>		- where there is no sender portion in the messsage, only the message itself
 	 * 
 	 * The first kind of messages are used by the server or other users of the application to send general messages
 	 * and the second kind of messages are used only by the server as control messages such as, disconnection an user.
