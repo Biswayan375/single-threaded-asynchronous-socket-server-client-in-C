@@ -10,7 +10,7 @@
  * gcc -c -Wall ./error_handling.c
  * gcc -c -Wall ./message_parser.c
  * gcc -c -Wall server.c
- * gcc -o s.out server.o server_utils.o logger.o error_handling.o message_parser.o
+ * gcc -o c.out server.o server_utils.o logger.o error_handling.o message_parser.o
  *
  * Now run that s.out
  * */
@@ -28,7 +28,7 @@
 #include "lib/error_handling.h"		// error handling utility function & macro - err_and_die & CHECK
 #include "lib/logger.h"				// utility function and macros for logging in the console in different colors - console_log, DANGER, SUCCESS etc.
 #include "lib/defaults.h"			// default configuration macros - SERVER_PORT, MAXLINE, MAX_CLIENTS, HOST
-#include "lib/server_utils.h"       // utility methods to be used by the server - nee_user, find_user_from_set, find_name_from_set, remove_user_from_set, broadcast
+#include "lib/server_utils.h"       // utility methods to be used by the server - new_user, find_user_from_set, find_name_from_set, remove_user_from_set, broadcast
 
 
 int main() {
@@ -127,7 +127,7 @@ int main() {
                                     if (flag == 0) {
                                         user->name = (char *)malloc(n * sizeof(char));
                                         strncpy(user->name, recvline, n);
-                                        sprintf(message, "SERVER:welcome to the network %s\n", user->name);
+                                        sprintf(message, "SERVER:welcome to the network %s\nwhoami - shows your name\nwhoarethey - shows all the connected users\ndisconnect - disconnect from the network\nTo send message to a specific client type - \n<receiver>:<message>\nTo broadcast a message to everyone on the network type -\n All:<message>\n", user->name);
                                         write(user->connfd, message, strlen(message));
 
                                         // broadcasting to other connected users that a new user has joined the party
