@@ -1,7 +1,5 @@
 CC=gcc
 CFLAGS=-c -Wall
-TESTFILE=./test.c
-
 
 
 server: server.o logger.o error.o server_utils.o message_parser.o
@@ -36,8 +34,3 @@ error.o: ./lib/error_handling.c
 clean:
 	clear
 	rm *.o *.out
-
-
-test: message_parser.o
-	$(CC) $(CFLAGS) $(TESTFILE)
-	$(CC) test.o message_parser.o
