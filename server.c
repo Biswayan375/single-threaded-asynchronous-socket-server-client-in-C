@@ -9,10 +9,10 @@
  * gcc -c -Wall ./lib/logger.c
  * gcc -c -Wall ./error_handling.c
  * gcc -c -Wall ./message_parser.c
- * gcc -c -Wall app.c
- * gcc -o c.out app.o server_utils.o logger.o error_handling.o message_parser.o
+ * gcc -c -Wall server.c
+ * gcc -o s.out server.o server_utils.o logger.o error_handling.o message_parser.o
  *
- * Now run that c.out
+ * Now run that s.out
  * */
 
 #include <stdio.h>
