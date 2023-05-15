@@ -24,9 +24,9 @@
 
 #include "lib/tcp_client.h"			// utility functions for opening and closing a client socket connection - create_connection, close_connection
 #include "lib/logger.h"				// utility function and macros for logging in the console in different colors - console_log, DANGER, SUCCESS etc.
-#include "lib/error_handling.h"		// error handling utility function & macro - err_and_die & CHECK
+#include "lib/error_handling.h"			// error handling utility function & macro - err_and_die & CHECK
 #include "lib/defaults.h"			// default configuration macros - SERVER_PORT, MAXLINE, MAX_CLIENTS, HOST
-#include "lib/message_parser.h"		// utility function for parsing a message into sender and body portion - parse_message
+#include "lib/message_parser.h"			// utility function for parsing a message into sender and body portion - parse_message
 
 
 int main() {
@@ -48,20 +48,20 @@ int main() {
 	sender = (char*) malloc(sizeof(char)*MAXLINE);				// for getting the sender portion of the message if any
 	body = (char*) malloc(sizeof(char)*MAXLINE);				// for getting the body portion of the message if any
 
-	fd = create_connection(HOST);								// creating the socket connection to the HOST
+	fd = create_connection(HOST);						// creating the socket connection to the HOST
 
-    fd_set current_sockets, ready_sockets;						// creating fd_sets for monitoring file descriptors
-    FD_ZERO(&current_sockets);									// initializing fd_set
-    FD_SET(fd, &current_sockets);								// including the socket file descriptor into the fd_set for monitoring
-    FD_SET(STDIN_FILENO, &current_sockets);						// including the standard input into the fd_set for monitoring
+    fd_set current_sockets, ready_sockets;					// creating fd_sets for monitoring file descriptors
+    FD_ZERO(&current_sockets);							// initializing fd_set
+    FD_SET(fd, &current_sockets);						// including the socket file descriptor into the fd_set for monitoring
+    FD_SET(STDIN_FILENO, &current_sockets);					// including the standard input into the fd_set for monitoring
 
     while (1) {
 		// the application loop starts and continues until the user disconnects
-    	ready_sockets = current_sockets;						// getting the original fd_set current_socket into temporary fd_set ready_sockets
-																// this is done because the select function we will use is destructive and changes the fd_set passed to it
+    	ready_sockets = current_sockets;					// getting the original fd_set current_socket into temporary fd_set ready_sockets
+										// this is done because the select function we will use is destructive and changes the fd_set passed to it
 
     	if (select(FD_SETSIZE, &ready_sockets, NULL, NULL, NULL) < 0) {
-            err_and_die("Application", "select error\n");		// closing the application if select does not work
+            err_and_die("Application", "select error\n");			// closing the application if select does not work
 		}
 
         for (int i = 0; i < FD_SETSIZE; i++) {
