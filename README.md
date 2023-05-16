@@ -1,8 +1,8 @@
 # single-threaded-asynchronous-socket-server-client-in-C
-It is a small project which has a socket server and a socket client implemented in C. More than one clients can be connected to the server and communicate with themselves (in the console, no GUI). Both the client and server is single threaded and uses asynchronous I/O to simultaneously read from or write into other sockets.
+It is a small project which has a socket server and a socket client implemented in C. More than one clients can be connected to the server and communicate with themselves (in the console, no GUI). Both, client and server are single threaded and uses asynchronous I/O to simultaneously read from or write into other sockets.
 
 - ## How to spin up the SERVER  
-> **```server.c```** is the main server application. It usees only one thread and asynchronous I/O to read from and write into sockets simultaneously. The Makefile associated with the project has a target names server to compile and run the whole thing. Or I am providing the instructions if you want to DIY.   
+> **```server.c```** is the main server application. It usees only one thread and asynchronous I/O to read from and write into sockets simultaneously. The Makefile associated with the project has a target name server to compile and run the whole thing. Or I am providing the instructions if you want to DIY.   
 > Run the following commands **TO COMPILE** it into **ONE EXECUTABLE (FOR LINUX ONLY)** from the **ROOT DIRECTORY** of the project -   
 > ```gcc -c -Wall ./lib/server_utils.c```   
 > ```gcc -c -Wall ./lib/logger.c```   
@@ -14,7 +14,7 @@ It is a small project which has a socket server and a socket client implemented 
 > Now run that s.out   
 
 - ## How to spin up the CLIENTS
-> **```app.c```** is the main client application. It usees only one thread and asynchronous I/O to read from and write into sockets simultaneously. The Makefile associated with the project has a target names client to compile and run the whole thing. Or I am providing the instructions if you want to DIY.   
+> **```app.c```** is the main client application. It usees only one thread and asynchronous I/O to read from and write into sockets simultaneously. The Makefile associated with the project has a target name client to compile and run the whole thing. Or I am providing the instructions if you want to DIY.   
 > Run the following commands TO COMPILE it into ONE EXECUTABLE (FOR LINUX) from the ROOT DIRECTORY of the project -   
 > ```gcc -c -Wall ./lib/tcp_client.c```   
 > ```gcc -c -Wall ./lib/logger.c```   
